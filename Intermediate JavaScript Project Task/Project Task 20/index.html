@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Wanderlust</title>
+    <link rel="stylesheet" type="text/css" href="public/reset.css" />
+    <link rel="stylesheet" type="text/css" href="public/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro|Work+Sans" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <img class="logo" src="https://s3.amazonaws.com/codecademy-content/courses/intermediate-javascript-requests/wanderlust/logo.svg" alt="logo" />
+    </header>
+    <main>
+      <h1>Where do you want to land?</h1>
+      <form autocomplete="off">
+        <input type="text" id="city">
+        <button id="button" type="submit">Submit</button>
+      </form>
+    </main>
+    <div class="container">
+    <div id="destination">
+
+    </div>
+    <div class="sectiontitle">
+      <h2>CURRENT WEATHER</h2>
+    </div>
+    <section id="weather">
+      <div class="weather" id="weather1">
+        <h2>{name}</h2>
+        <img src="http://openweathermap.org/img/w/{icon}.png" alt="{description}">
+        <p>{description}</p>
+        <p>Temperature: {temp}°C</p>
+        <p>Humidity: {humidity}%</p>
+      </div>
+    </section>
+    <div class="sectiontitle">
+      <h2>TOP ATTRACTIONS</h2>
+    </div>
+    <section id="venues">
+      <div class="venue" id="venue1">
+
+      </div>
+      <div class="venue" id="venue2">
+
+      </div>
+      <div class="venue" id="venue3">
+
+      </div>
+      <div class="venue" id="venue4">
+        <h2>Eiffel Tower</h2>
+        <img class="venueimage" src="https://example.com/icons/eiffel-tower.png" />
+        <h3>Address:</h3>
+        <p>Champ de Mars, 5 Avenue Anatole France</p>
+        <p>Paris</p>
+        <p>France</p>
+      </div>
+    </section>
+    <footer>
+    </footer>
+
+  </div>
+    <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+    <script src="public/helpers.js"></script>
+    <script src="public/main.js"></script>
+    <script>
+      const venueIcon = {
+        prefix: 'https://example.com/icons/',
+        suffix: '.png'
+      };
+      const venueImgSrc = `${venueIcon.prefix}bg_64${venueIcon.suffix}`;
+    </script>
+    <script>
+      // Get the current day's weather data
+      const currentDay = {
+        main: {
+          temp: 293.15
+        },
+        weather: [
+          {
+            description: "Sunny",
+            icon: "01d"
+          }
+        ]
+      };
+  
+      // Use the createWeatherHTML() function to generate the HTML
+      const weatherContent = createWeatherHTML(currentDay);
+  
+      // Display the weather information
+      const weatherContainer = document.getElementById('weather-content');
+      weatherContainer.innerHTML = weatherContent;
+    </script>
+  </body>
+</html>
